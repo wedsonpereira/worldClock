@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+.App{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    color: white;
+    width: 100%;
+    height: 100dvh;
+}
+.c-header{
+    width: 60%;
+    /*border: 1px solid white;*/
+    padding: 2rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: Poppins,"sans-serif";
+    opacity: 70%;
+    font-size: 2.2rem;
+    gap: 1rem;
+}
+.i-image{
+    width: 50px;
+}
+.c-timer{
+    display: flex;
+    justify-self: center;
+    align-self: center;
+    /*border: 1px solid green;*/
+
+    opacity: 80%;
+    align-items: center;
+    justify-content: center;
+    width: 60%;
+    position: relative;
+    .time-zone{
+        background: rgb(0, 0, 0);
+        width: 80%;
+        height: 70%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 1rem;
+    }
+    h3{
+        width: 100%;
+        text-align: center;
+        font-size: clamp(6rem,900px,0.5rem);
+    }
+}
+
+@property --angle {
+    syntax:" <angle>";
+    initial-value: 0deg;
+    inherits: false;
+
+
+}
+
+.time-zone::after, .time-zone::before{
+    content: "";
+    background: blue;
+    width: inherit;
+    height:inherit;
+    position: absolute;
+    z-index: -1;
+    border-radius: 1rem;
+    padding: 5px;
+    background: conic-gradient(from var(--angle),transparent 80%, #bf79ff,red);
+    animation:spin 3s linear infinite;
+}
+
+.time-zone::before{
+    filter: blur(2rem);
+    content: "";
+}
+
+
+@keyframes spin {
+    0%{
+        --angle: 0deg;
+    }
+    100%{
+        --angle: 360deg;
+    }
+}
+
+.countries{
+    background: rgba(0, 0, 0, 0.29);
+    color: white;
+    font-size: 1rem;
+    width: 30%;
+    height: 100%;
+    padding: 0.5rem;
+    text-align: center;
+    border-radius: 0.5rem;
+
+    option{
+        background: #000;
+        padding: 1rem;
+    }
+}
+
+/* Custom scrollbar for WebKit browsers (Chrome, Edge, Safari) */
+.countries::-webkit-scrollbar {
+    width: 8px; /* Adjust the width here */
+}
+
+.countries::-webkit-scrollbar-thumb {
+    background-color: #888; /* Color of the scrollbar */
+    border-radius: 10px; /* Rounded corners */
+}
+
+.countries::-webkit-scrollbar-track {
+    background-color: #000000; /* Background of the scrollbar track */
+}
+
+/* Custom scrollbar for Firefox */
+.countries {
+    scrollbar-width: thin; /* Reduces the width of the scrollbar */
+    scrollbar-color: #888 #f1f1f1; /* Custom color for scrollbar and track */
+}
